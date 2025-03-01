@@ -1,0 +1,5 @@
+This is a placeholder file.
+
+Add your image files to this directory:
+- default-bg.jpg (background image)
+- compass.png (Qibla compass image)
