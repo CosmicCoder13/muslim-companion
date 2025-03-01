@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muslim Companion</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #43a047;
+      --primary-dark: #2e7d32;
+      --primary-light: #c8e6c9;
+      --accent-color: #ff8f00;
+      --text-color: #212121;
+      --text-secondary: #757575;
+      --divider-color: #e0e0e0;
+      --background-color: #f5f5f5;
+      --card-color: #ffffff;
+      --shadow: 0 2px 5px rgba(0,0,0,0.1);
+      --shadow-hover: 0 4px 10px rgba(0,0,0,0.15);
+      --border-radius: 12px;
+      --transition: all 0.3s ease;
+      --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      width: 350px;
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-family);
+      color: var(--text-color);
+      background-color: var(--background-color);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .popup-container {
+      display: flex;
+      flex-direction: column;
+      height: 500px;
+    }
+
+    .header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 20px 16px;
+      text-align: center;
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+      box-shadow: var(--shadow);
+      position: relative;
+      z-index: 2;
+      margin-bottom: 16px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .header p {
+      margin: 0;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .tabs {
+      display: flex;
+      padding: 0 16px;
+      margin-top: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tab {
+      flex: 1;
+      text-align: center;
+      padding: 16px 4px;
+      background-color: var(--card-color);
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+      border-radius: var(--border-radius);
+      margin: 0 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tab i {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .tab.active {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    .content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      margin-top: 12px;
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .card {
+      background-color: var(--card-color);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      padding: 16px;
+      margin-bottom: 16px;
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-hover);
+    }
+
+    .card h2 {
+      margin: 0 0 12px;
+      font-size: 16px;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+    }
+
+    .card h2 i {
+      margin-right: 8px;
+    }
+
+    .prayer-time {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--divider-color);
+      font-size: 13px;
+    }
+
+    .prayer-time:last-child {
+      border-bottom: none;
+    }
+
+    .prayer-name {
+      font-weight: 500;
+    }
+
+    .prayer-time-value {
+      font-weight: 600;
+    }
+
+    .next-prayer {
+      background-color: var(--primary-light);
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    .next-prayer-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .next-prayer-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin: 2px 0;
+    }
+
+    .next-prayer-time {
+      font-size: 13px;
+      color: var(--primary-color);
+    }
+
+    .countdown {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    .qibla-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 16px 0;
+    }
+
+    .compass-container {
+      position: relative;
+      width: 180px;
+      height: 180px;
+    }
+
+    .compass-bg {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: #f5f5f5;
+      border: 2px solid #e0e0e0;
+      position: relative;
+    }
+
+    /* Cardinal directions */
+    .compass-bg::before {
+      content: "N";
+      position: absolute;
+      top: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: bold;
+      color: var(--primary-dark);
+    }
+
+    .compass-bg::after {
+      content: "S";
+      position: absolute;
+      bottom: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: bold;
+      color: var(--text-secondary);
+    }
+
+    .east-west::before {
+      content: "E";
+      position: absolute;
+      top: 50%;
+      right: 5px;
+      transform: translateY(-50%);
+      font-weight: bold;
+      color: var(--text-secondary);
+    }
+
+    .east-west::after {
+      content: "W";
+      position: absolute;
+      top: 50%;
+      left: 5px;
+      transform: translateY(-50%);
+      font-weight: bold;
+      color: var(--text-secondary);
+    }
+
+    .qibla-arrow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 4px;
+      height: 90px;
+      background-color: var(--accent-color);
+      transform-origin: bottom center;
+      transform: translate(-50%, -100%) rotate(0deg);
+      z-index: 2;
+      transition: transform 1s ease;
+    }
+
+    .qibla-arrow::before {
+      content: "";
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 16px solid var(--accent-color);
+    }
+
+    .qibla-angle {
+      margin-top: 16px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--primary-dark);
+    }
+
+    .quote-container {
+      padding: 8px 0;
+    }
+
+    .quote-text {
+      font-style: italic;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--text-color);
+      margin-bottom: 8px;
+    }
+
+    .quote-source {
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-align: right;
+    }
+
+    .settings-option {
+      margin-bottom: 16px;
+    }
+
+    .settings-label {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    select, input[type="checkbox"] {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid var(--divider-color);
+      border-radius: 6px;
+      font-size: 13px;
+      color: var(--text-color);
+    }
+
+    select:focus {
+      outline: none;
+      border-color: var(--primary-color);
+    }
+
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .checkbox-container input {
+      width: auto;
+      margin-right: 8px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: var(--primary-dark);
+    }
+
+    .btn-reset {
+      background-color: #f44336;
+    }
+
+    .btn-reset:hover {
+      background-color: #d32f2f;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .quick-link {
+      flex: 1 0 calc(50% - 8px);
+      min-width: calc(50% - 8px);
+      padding: 12px 8px;
+      text-align: center;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .quick-link i {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .quick-link-quran {
+      background-color: #e8f5e9;
+      color: #2e7d32;
+    }
+
+    .quick-link-quran:hover {
+      background-color: #c8e6c9;
+    }
+
+    .quick-link-hadith {
+      background-color: #fff8e1;
+      color: #ff8f00;
+    }
+
+    .quick-link-hadith:hover {
+      background-color: #ffecb3;
+    }
+
+    .location-detect {
+      font-size: 13px;
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .detect-btn {
+      font-size: 12px;
+      padding: 4px 8px;
+      background-color: var(--primary-light);
+      color: var(--primary-dark);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .detect-btn:hover {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* For RTL languages */
+    html[dir="rtl"] .card h2 i,
+    html[dir="rtl"] .checkbox-container input {
+      margin-right: 0;
+      margin-left: 8px;
+    }
+
+    /* Dark mode */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --text-color: #ffffff;
+        --text-secondary: #b0b0b0;
+        --divider-color: #424242;
+        --background-color: #212121;
+        --card-color: #313131;
+        --shadow: 0 2px 5px rgba(0,0,0,0.3);
+        --shadow-hover: 0 4px 10px rgba(0,0,0,0.4);
+      }
+      
+      .compass-bg {
+        background-color: #424242;
+        border-color: #616161;
+      }
+      
+      .quick-link-quran {
+        background-color: #1b5e20;
+        color: #ffffff;
+      }
+      
+      .quick-link-quran:hover {
+        background-color: #2e7d32;
+      }
+      
+      .quick-link-hadith {
+        background-color: #e65100;
+        color: #ffffff;
+      }
+      
+      .quick-link-hadith:hover {
+        background-color: #ef6c00;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="popup-container">
+    <div class="header">
+      <h1 id="app-title">Muslim Companion</h1>
+      <p id="app-tagline">Your daily Islamic companion</p>
+    </div>
+    
+    <div class="tabs">
+      <div class="tab active" data-tab="prayers">
+        <i class="fas fa-mosque"></i>
+        <span id="tab-prayers">Prayers</span>
+      </div>
+      <div class="tab" data-tab="qibla">
+        <i class="fas fa-compass"></i>
+        <span id="tab-qibla">Qibla</span>
+      </div>
+      <div class="tab" data-tab="inspiration">
+        <i class="fas fa-book-open"></i>
+        <span id="tab-inspiration">Quotes</span>
+      </div>
+      <div class="tab" data-tab="settings">
+        <i class="fas fa-cog"></i>
+        <span id="tab-settings">Settings</span>
+      </div>
+    </div>
+    
+    <div class="content">
+      <!-- Prayer Times Tab -->
+      <div class="tab-content active" id="prayers-content">
+        <div class="card">
+          <h2><i class="fas fa-clock"></i> <span id="prayers-title">Prayer Times</span></h2>
+          <div id="prayer-times">
+            <!-- Prayer times will be loaded here -->
+            <div class="prayer-time">
+              <span class="prayer-name" id="fajr-label">Fajr</span>
+              <span class="prayer-time-value" id="fajr-time">--:--</span>
+            </div>
+            <div class="prayer-time">
+              <span class="prayer-name" id="sunrise-label">Sunrise</span>
+              <span class="prayer-time-value" id="sunrise-time">--:--</span>
+            </div>
+            <div class="prayer-time">
+              <span class="prayer-name" id="dhuhr-label">Dhuhr</span>
+              <span class="prayer-time-value" id="dhuhr-time">--:--</span>
+            </div>
+            <div class="prayer-time">
+              <span class="prayer-name" id="asr-label">Asr</span>
+              <span class="prayer-time-value" id="asr-time">--:--</span>
+            </div>
+            <div class="prayer-time">
+              <span class="prayer-name" id="maghrib-label">Maghrib</span>
+              <span class="prayer-time-value" id="maghrib-time">--:--</span>
+            </div>
+            <div class="prayer-time">
+              <span class="prayer-name" id="isha-label">Isha</span>
+              <span class="prayer-time-value" id="isha-time">--:--</span>
+            </div>
+          </div>
+          
+          <div class="next-prayer">
+            <div class="next-prayer-label" id="next-prayer-label">Next prayer</div>
+            <div class="next-prayer-name" id="next-prayer-name">Loading...</div>
+            <div class="next-prayer-time" id="next-prayer-time">--:--</div>
+            <div class="countdown" id="prayer-countdown">--:--:--</div>
+          </div>
+
+          <div class="location-detect">
+            <span id="current-location">Detecting location...</span>
+            <button class="detect-btn" id="detect-location">
+              <i class="fas fa-map-marker-alt"></i> Detect
+            </button>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h2><i class="fas fa-link"></i> <span id="quick-links-title">Quick Links</span></h2>
+          <div class="quick-links">
+            <a href="https://quran.com" target="_blank" class="quick-link quick-link-quran">
+              <i class="fas fa-book"></i>
+              <span id="quran-link">Quran</span>
+            </a>
+            <a href="https://sunnah.com" target="_blank" class="quick-link quick-link-hadith">
+              <i class="fas fa-scroll"></i>
+              <span id="hadith-link">Hadith</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Qibla Direction Tab -->
+      <div class="tab-content" id="qibla-content">
+        <div class="card">
+          <h2><i class="fas fa-compass"></i> <span id="qibla-title">Qibla Direction</span></h2>
+          <div class="qibla-container">
+            <div class="compass-container">
+              <div class="compass-bg">
+                <div class="east-west"></div>
+              </div>
+              <div id="qibla-arrow" class="qibla-arrow"></div>
+            </div>
+            <div class="qibla-angle" id="qibla-angle">Calculating Qibla direction...</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Inspiration Tab -->
+      <div class="tab-content" id="inspiration-content">
+        <div class="card">
+          <h2><i class="fas fa-quote-left"></i> <span id="inspiration-title">Daily Inspiration</span></h2>
+          <div class="quote-container">
+            <p class="quote-text" id="quote-text">Loading quote...</p>
+            <p class="quote-source" id="quote-source">-</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Settings Tab -->
+      <div class="tab-content" id="settings-content">
+        <div class="card">
+          <h2><i class="fas fa-sliders-h"></i> <span id="settings-title">Settings</span></h2>
+          
+          <div class="settings-option">
+            <label class="settings-label" id="calculation-method-label" for="calculation-method">Calculation Method</label>
+            <select id="calculation-method">
+              <option value="1">Egyptian General Authority of Survey</option>
+              <option value="2">Islamic Society of North America (ISNA)</option>
+              <option value="3">Muslim World League</option>
+              <option value="4">Umm al-Qura University, Makkah</option>
+              <option value="5">Egyptian General Authority of Survey (Fajr: 19.5°, Isha: 17.5°)</option>
+              <option value="7">Institute of Geophysics, University of Tehran</option>
+              <option value="8">Gulf Region</option>
+              <option value="9">Kuwait</option>
+              <option value="10">Qatar</option>
+              <option value="11">Majlis Ugama Islam Singapura, Singapore</option>
+              <option value="12">Union Organization islamic de France</option>
+              <option value="13">Diyanet İşleri Başkanlığı, Turkey</option>
+              <option value="14">Spiritual Administration of Muslims of Russia</option>
+            </select>
+          </div>
+          
+          <div class="settings-option">
+            <div class="checkbox-container">
+              <input type="checkbox" id="notifications-enabled" checked>
+              <label for="notifications-enabled" id="notifications-label">Enable Prayer Time Notifications</label>
+            </div>
+          </div>
+          
+          <div class="settings-option">
+            <label class="settings-label" id="language-label" for="language-select">Language</label>
+            <select id="language-select">
+              <option value="en">English</option>
+              <option value="ar">العربية (Arabic)</option>
+              <option value="fr">Français (French)</option>
+              <option value="ur">اردو (Urdu)</option>
+            </select>
+          </div>
+          
+          <div class="actions">
+            <button id="save-settings" class="btn"><i class="fas fa-save"></i> <span id="save-button">Save</span></button>
+            <button id="reset-settings" class="btn btn-reset"><i class="fas fa-undo"></i> <span id="reset-button">Reset</span></button>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h2><i class="fas fa-info-circle"></i> <span id="about-title">About & Help</span></h2>
+          <p style="font-size: 13px; margin: 0 0 8px;">Muslim Companion v1.0.0</p>
+          <p style="font-size: 12px; color: var(--text-secondary); margin: 0;">A comprehensive Chrome extension for Muslims featuring prayer times, Qibla direction, and more.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="translations.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
