@@ -1,0 +1,112 @@
+/* General styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  transition: background-image 0.5s ease-in-out;
+}
+
+/* Clock and Date styles */
+#current-time {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#current-date, #hijri-date {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Qibla compass styles */
+#compass {
+  transition: transform 0.5s ease-in-out;
+}
+
+#qibla-arrow {
+  height: 4px;
+  border-radius: 2px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Prayer time styles */
+#next-prayer {
+  transition: background-color 0.3s ease;
+}
+
+#prayer-countdown {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Task item styles */
+.task-item {
+  transition: background-color 0.2s ease;
+}
+
+.task-item:hover {
+  background-color: #f9f9f9;
+}
+
+.task-item.completed {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #current-time {
+    font-size: 2.5rem;
+  }
+  
+  #current-date {
+    font-size: 1.5rem;
+  }
+  
+  #hijri-date {
+    font-size: 1.2rem;
+  }
+  
+  #compass {
+    width: 120px;
+    height: 120px;
+  }
+  
+  #qibla-arrow {
+    width: 100px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .bg-white {
+    background-color: rgba(30, 41, 59, 0.9) !important;
+  }
+  
+  .text-gray-700, .text-gray-800 {
+    color: #e5e7eb !important;
+  }
+  
+  .text-gray-500, .text-gray-600 {
+    color: #9ca3af !important;
+  }
+  
+  input, select {
+    background-color: rgba(30, 41, 59, 0.5) !important;
+    color: #e5e7eb !important;
+    border-color: #4b5563 !important;
+  }
+}
