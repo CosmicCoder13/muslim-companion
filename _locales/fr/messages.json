@@ -1,0 +1,50 @@
+{
+  "appName": {
+    "message": "Compagnon Musulman",
+    "description": "Le nom de l'extension"
+  },
+  "appDesc": {
+    "message": "Une extension Chrome complète pour les musulmans avec les heures de prière, la direction de la Qibla, des rappels et plus encore",
+    "description": "La description de l'extension"
+  },
+  "prayerTimes": {
+    "message": "Heures de Prière",
+    "description": "Titre de la section des heures de prière"
+  },
+  "qiblaDirection": {
+    "message": "Direction de la Qibla",
+    "description": "Titre de la section de direction de la Qibla"
+  },
+  "dailyInspiration": {
+    "message": "Inspiration Quotidienne",
+    "description": "Titre de la section d'inspiration quotidienne"
+  },
+  "settings": {
+    "message": "Paramètres",
+    "description": "Titre de la section des paramètres"
+  },
+  "fajr": {
+    "message": "Fajr",
+    "description": "Nom de la prière Fajr"
+  },
+  "sunrise": {
+    "message": "Lever du soleil",
+    "description": "Heure du lever du soleil"
+  },
+  "dhuhr": {
+    "message": "Dhuhr",
+    "description": "Nom de la prière Dhuhr"
+  },
+  "asr": {
+    "message": "Asr",
+    "description": "Nom de la prière Asr"
+  },
+  "maghrib": {
+    "message": "Maghrib",
+    "description": "Nom de la prière Maghrib"
+  },
+  "isha": {
+    "message": "Isha",
+    "description": "Nom de la prière Isha"
+  }
+}
