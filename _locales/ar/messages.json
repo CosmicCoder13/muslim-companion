@@ -1,0 +1,50 @@
+{
+  "appName": {
+    "message": "رفيق المسلم",
+    "description": "اسم الإضافة"
+  },
+  "appDesc": {
+    "message": "إضافة شاملة لمتصفح كروم للمسلمين تتضمن أوقات الصلاة واتجاه القبلة والتذكيرات والمزيد",
+    "description": "وصف الإضافة"
+  },
+  "prayerTimes": {
+    "message": "أوقات الصلاة",
+    "description": "قسم أوقات الصلاة"
+  },
+  "qiblaDirection": {
+    "message": "اتجاه القبلة",
+    "description": "قسم اتجاه القبلة"
+  },
+  "dailyInspiration": {
+    "message": "إلهام يومي",
+    "description": "قسم الاقتباس اليومي"
+  },
+  "settings": {
+    "message": "الإعدادات",
+    "description": "قسم الإعدادات"
+  },
+  "fajr": {
+    "message": "الفجر",
+    "description": "اسم صلاة الفجر"
+  },
+  "sunrise": {
+    "message": "الشروق",
+    "description": "وقت الشروق"
+  },
+  "dhuhr": {
+    "message": "الظهر",
+    "description": "اسم صلاة الظهر"
+  },
+  "asr": {
+    "message": "العصر",
+    "description": "اسم صلاة العصر"
+  },
+  "maghrib": {
+    "message": "المغرب",
+    "description": "اسم صلاة المغرب"
+  },
+  "isha": {
+    "message": "العشاء",
+    "description": "اسم صلاة العشاء"
+  }
+}
