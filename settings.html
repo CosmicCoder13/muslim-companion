@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muslim Companion Settings</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f3f4f6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mx-auto px-4 py-8 max-w-3xl">
+    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+      <div class="bg-green-600 px-6 py-4">
+        <h1 class="text-white text-2xl font-bold">Muslim Companion Settings</h1>
+      </div>
+      
+      <div class="p-6 space-y-6">
+        <!-- Location Settings -->
+        <div class="bg-gray-50 p-4 rounded-lg">
+          <h2 class="text-xl font-semibold text-gray-800 mb-4">Location Settings</h2>
+          
+          <div class="mb-4">
+            <div class="flex items-center justify-between mb-2">
+              <label class="text-gray-700 font-medium">Current Location</label>
+              <button id="detect-location" class="text-green-600 hover:text-green-800 text-sm font-medium">Detect Location</button>
+            </div>
+            <p id="current-location" class="text-gray-500 mb-2">No location set</p>
+            
+            <div class="flex space-x-2">
+              <input type="text" id="city-input" placeholder="Enter city name" class="flex-grow px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+              <button id="search-city" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 focus:outline-none">Search</button>
+            </div>
+            
+            <div id="city-results" class="mt-2 hidden">
+              <select id="city-select" class="w-full p-2 border rounded-lg mb-2">
+                <option>Select a city from results</option>
+              </select>
+              <button id="set-city" class="w-full bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 focus:outline-none">Set Selected City</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Prayer Settings -->
+        <div class="bg-gray-50 p-4 rounded-lg">
+          <h2 class="text-xl font-semibold text-gray-800 mb-4">Prayer Settings</h2>
+          
+          <div class="mb-4">
+            <label class="block text-gray-700 font-medium mb-2">Calculation Method</label>
+            <select id="calculation-method" class="w-full p-2 border rounded-lg">
+              <option value="1">Egyptian General Authority of Survey</option>
+              <option value="2">Islamic Society of North America (ISNA)</option>
+              <option value="3">Muslim World League</option>
+              <option value="4">Umm al-Qura University, Makkah</option>
+              <option value="5">Egyptian General Authority of Survey (Fajr angle: 19.5°, Isha angle: 17.5°)</option>
+              <option value="7">Institute of Geophysics, University of Tehran</option>
+              <option value="8">Gulf Region</option>
+              <option value="9">Kuwait</option>
+              <option value="10">Qatar</option>
+              <option value="11">Majlis Ugama Islam Singapura, Singapore</option>
+              <option value="12">Union Organization islamic de France</option>
+              <option value="13">Diyanet İşleri Başkanlığı, Turkey</option>
+              <option value="14">Spiritual Administration of Muslims of Russia</option>
+            </select>
+          </div>
+          
+          <div class="mb-4">
+            <label class="flex items-center">
+              <input type="checkbox" id="notifications-enabled" class="form-checkbox h-5 w-5 text-green-600">
+              <span class="ml-2 text-gray-700">Enable Prayer Time Notifications</span>
+            </label>
+          </div>
+        </div>
+        
+        <!-- Appearance Settings -->
+        <div class="bg-gray-50 p-4 rounded-lg">
+          <h2 class="text-xl font-semibold text-gray-800 mb-4">Appearance Settings</h2>
+          
+          <div class="mb-4">
+            <label class="block text-gray-700 font-medium mb-2">Background Image</label>
+            <div class="grid grid-cols-3 gap-2 mb-2">
+              <div class="bg-image border-2 border-transparent hover:border-green-500 rounded-lg cursor-pointer overflow-hidden h-24" data-image="images/bg1.jpg">
+                <img src="images/bg1.jpg" alt="Background 1" class="object-cover w-full h-full">
+              </div>
+              <div class="bg-image border-2 border-transparent hover:border-green-500 rounded-lg cursor-pointer overflow-hidden h-24" data-image="images/bg2.jpg">
+                <img src="images/bg2.jpg" alt="Background 2" class="object-cover w-full h-full">
+              </div>
+              <div class="bg-image border-2 border-transparent hover:border-green-500 rounded-lg cursor-pointer overflow-hidden h-24" data-image="images/bg3.jpg">
+                <img src="images/bg3.jpg" alt="Background 3" class="object-cover w-full h-full">
+              </div>
+            </div>
+            
+            <div class="mt-2">
+              <label class="block text-gray-700 text-sm font-medium mb-1">Custom Background URL</label>
+              <div class="flex space-x-2">
+                <input type="text" id="custom-bg-url" placeholder="Enter image URL" class="flex-grow px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                <button id="set-custom-bg" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 focus:outline-none">Set</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mb-4">
+            <label class="block text-gray-700 font-medium mb-2">Language</label>
+            <select id="language-select" class="w-full p-2 border rounded-lg">
+              <option value="en">English</option>
+              <option value="ar">العربية (Arabic)</option>
+              <option value="fr">Français (French)</option>
+              <option value="ur">اردو (Urdu)</option>
+              <option value="id">Bahasa Indonesia (Indonesian)</option>
+              <option value="tr">Türkçe (Turkish)</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- About and Help -->
+        <div class="bg-gray-50 p-4 rounded-lg">
+          <h2 class="text-xl font-semibold text-gray-800 mb-4">About & Help</h2>
+          
+          <p class="text-gray-700 mb-2">Muslim Companion v1.0.0</p>
+          <p class="text-gray-600 mb-4">A comprehensive Chrome extension for Muslims featuring prayer times, Qibla direction, and more.</p>
+          
+          <div class="flex space-x-2">
+            <a href="https://github.com/CosmicCoder13/muslim-companion" target="_blank" class="text-green-600 hover:text-green-800">Source Code</a>
+            <span class="text-gray-400">|</span>
+            <a href="https://forms.gle/yourFormUrl" target="_blank" class="text-green-600 hover:text-green-800">Submit Feedback</a>
+            <span class="text-gray-400">|</span>
+            <a href="https://forms.gle/anotherFormUrl" target="_blank" class="text-green-600 hover:text-green-800">Submit a Quote</a>
+          </div>
+        </div>
+        
+        <!-- Buttons -->
+        <div class="flex space-x-2 mt-4">
+          <button id="save-settings" class="flex-grow bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 focus:outline-none font-medium">Save Settings</button>
+          <button id="reset-settings" class="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600 focus:outline-none font-medium">Reset to Default</button>
+          <a href="newtab.html" class="flex items-center justify-center bg-gray-200 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-300 focus:outline-none font-medium">
+            Back
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="settings.js"></script>
+</body>
+</html>
