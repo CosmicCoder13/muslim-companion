@@ -1,0 +1,116 @@
+{
+  "appName": {
+    "message": "Muslim Companion",
+    "description": "The name of the extension"
+  },
+  "appDesc": {
+    "message": "A comprehensive Chrome extension for Muslims featuring prayer times, Qibla direction, reminders, and more",
+    "description": "The description of the extension"
+  },
+  "prayerTimes": {
+    "message": "Prayer Times",
+    "description": "Prayer times section title"
+  },
+  "qiblaDirection": {
+    "message": "Qibla Direction",
+    "description": "Qibla direction section title"
+  },
+  "dailyInspiration": {
+    "message": "Daily Inspiration",
+    "description": "Daily quote section title"
+  },
+  "settings": {
+    "message": "Settings",
+    "description": "Settings section title"
+  },
+  "fajr": {
+    "message": "Fajr",
+    "description": "Fajr prayer name"
+  },
+  "sunrise": {
+    "message": "Sunrise",
+    "description": "Sunrise time"
+  },
+  "dhuhr": {
+    "message": "Dhuhr",
+    "description": "Dhuhr prayer name"
+  },
+  "asr": {
+    "message": "Asr",
+    "description": "Asr prayer name"
+  },
+  "maghrib": {
+    "message": "Maghrib",
+    "description": "Maghrib prayer name"
+  },
+  "isha": {
+    "message": "Isha",
+    "description": "Isha prayer name"
+  },
+  "nextPrayer": {
+    "message": "Next prayer",
+    "description": "Next prayer label"
+  },
+  "tomorrow": {
+    "message": "Tomorrow",
+    "description": "Tomorrow label"
+  },
+  "qiblaIs": {
+    "message": "Qibla is $degrees$° from North",
+    "description": "Qibla direction text",
+    "placeholders": {
+      "degrees": {
+        "content": "$1",
+        "example": "45"
+      }
+    }
+  },
+  "detectingLocation": {
+    "message": "Detecting location...",
+    "description": "Detecting location text"
+  },
+  "locationDetectionFailed": {
+    "message": "Location detection failed",
+    "description": "Location detection failure message"
+  },
+  "calculationMethod": {
+    "message": "Calculation Method",
+    "description": "Prayer time calculation method"
+  },
+  "enableNotifications": {
+    "message": "Enable Prayer Time Notifications",
+    "description": "Enable notifications checkbox label"
+  },
+  "language": {
+    "message": "Language",
+    "description": "Language selection label"
+  },
+  "save": {
+    "message": "Save",
+    "description": "Save button text"
+  },
+  "reset": {
+    "message": "Reset",
+    "description": "Reset button text"
+  },
+  "aboutApp": {
+    "message": "About & Help",
+    "description": "About section title"
+  },
+  "version": {
+    "message": "Version",
+    "description": "Version label"
+  },
+  "quran": {
+    "message": "Quran",
+    "description": "Quran link text"
+  },
+  "hadith": {
+    "message": "Hadith",
+    "description": "Hadith link text"
+  },
+  "yourDailyCompanion": {
+    "message": "Your daily Islamic companion",
+    "description": "Tagline"
+  }
+}
