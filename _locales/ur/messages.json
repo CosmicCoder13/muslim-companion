@@ -1,0 +1,50 @@
+{
+  "appName": {
+    "message": "مسلم کمپینین",
+    "description": "ایکسٹینشن کا نام"
+  },
+  "appDesc": {
+    "message": "مسلمانوں کے لیے ایک جامع کروم ایکسٹینشن جس میں نماز کے اوقات، قبلہ کی سمت، یاد دہانیاں، اور مزید شامل ہیں",
+    "description": "ایکسٹینشن کی تفصیل"
+  },
+  "prayerTimes": {
+    "message": "نماز کے اوقات",
+    "description": "نماز کے اوقات کا عنوان"
+  },
+  "qiblaDirection": {
+    "message": "قبلہ کی سمت",
+    "description": "قبلہ کی سمت کا عنوان"
+  },
+  "dailyInspiration": {
+    "message": "روزانہ کی تحریک",
+    "description": "روزانہ اقتباس کا عنوان"
+  },
+  "settings": {
+    "message": "ترتیبات",
+    "description": "ترتیبات کا عنوان"
+  },
+  "fajr": {
+    "message": "فجر",
+    "description": "فجر کی نماز کا نام"
+  },
+  "sunrise": {
+    "message": "طلوع آفتاب",
+    "description": "سورج کے طلوع ہونے کا وقت"
+  },
+  "dhuhr": {
+    "message": "ظہر",
+    "description": "ظہر کی نماز کا نام"
+  },
+  "asr": {
+    "message": "عصر",
+    "description": "عصر کی نماز کا نام"
+  },
+  "maghrib": {
+    "message": "مغرب",
+    "description": "مغرب کی نماز کا نام"
+  },
+  "isha": {
+    "message": "عشاء",
+    "description": "عشاء کی نماز کا نام"
+  }
+}
