@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muslim Companion</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="newtab.css">
+</head>
+<body class="bg-gray-100 transition-all duration-500">
+  <div id="background-overlay" class="fixed inset-0 bg-black opacity-30 z-0"></div>
+  <div class="container mx-auto px-4 py-8 relative z-10">
+    
+    <!-- Header with time and date -->
+    <header class="text-center mb-8">
+      <h1 id="current-time" class="text-5xl font-bold text-white mb-2">00:00:00</h1>
+      <h2 id="current-date" class="text-2xl text-white">Loading date...</h2>
+      <div id="hijri-date" class="text-xl text-white mt-1">Loading Hijri date...</div>
+    </header>
+    
+    <!-- Main content grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- Prayer times section -->
+      <div class="bg-white bg-opacity-90 rounded-lg shadow-lg p-6">
+        <h3 class="text-xl font-bold mb-4 text-gray-800">Prayer Times</h3>
+        <div id="prayer-times" class="space-y-2">
+          <p class="text-gray-500">Loading prayer times...</p>
+        </div>
+        <div class="mt-4">
+          <div id="next-prayer" class="text-center p-3 bg-green-100 rounded-lg">
+            <p class="text-sm text-gray-600">Next prayer</p>
+            <p id="next-prayer-name" class="font-bold text-green-800">Loading...</p>
+            <p id="next-prayer-time" class="text-green-700">--:--</p>
+            <div id="prayer-countdown" class="text-sm text-gray-600 mt-1">--:--:--</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Qibla direction section -->
+      <div class="bg-white bg-opacity-90 rounded-lg shadow-lg p-6">
+        <h3 class="text-xl font-bold mb-4 text-gray-800">Qibla Direction</h3>
+        <div id="qibla-container" class="flex justify-center items-center">
+          <div id="compass" class="relative w-48 h-48">
+            <img src="images/compass.png" alt="Compass" class="w-full h-full">
+            <div id="qibla-arrow" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-4 bg-red-500 origin-center rotate-0"></div>
+          </div>
+        </div>
+        <p id="qibla-angle" class="text-center mt-4 text-gray-700">Calculating Qibla direction...</p>
+      </div>
+      
+      <!-- Quote section -->
+      <div class="bg-white bg-opacity-90 rounded-lg shadow-lg p-6">
+        <h3 class="text-xl font-bold mb-4 text-gray-800">Daily Inspiration</h3>
+        <div id="quote-container">
+          <p id="quote-text" class="text-gray-700 italic mb-2">Loading quote...</p>
+          <p id="quote-source" class="text-right text-gray-500 text-sm">-</p>
+        </div>
+      </div>
+      
+      <!-- To-Do list section -->
+      <div class="bg-white bg-opacity-90 rounded-lg shadow-lg p-6 md:col-span-2">
+        <h3 class="text-xl font-bold mb-4 text-gray-800">Tasks</h3>
+        <div id="todo-container">
+          <div class="flex mb-4">
+            <input type="text" id="new-task" placeholder="Add a new task..." class="flex-grow px-4 py-2 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+            <button id="add-task" class="bg-green-600 text-white px-4 py-2 rounded-r-lg hover:bg-green-700 focus:outline-none">Add</button>
+          </div>
+          <ul id="task-list" class="divide-y divide-gray-200">
+            <!-- Tasks will be loaded here -->
+            <li class="py-3 text-gray-500">Your tasks will appear here</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Settings link -->
+      <div class="bg-white bg-opacity-90 rounded-lg shadow-lg p-6">
+        <h3 class="text-xl font-bold mb-4 text-gray-800">Settings</h3>
+        <a href="settings.html" class="block w-full text-center bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">Open Settings</a>
+        <div class="mt-4">
+          <p class="text-sm text-gray-600">Current location:</p>
+          <p id="current-location" class="font-semibold text-gray-800">Detecting location...</p>
+        </div>
+      </div>
+      
+    </div>
+    
+    <footer class="mt-8 text-center text-white text-sm opacity-70">
+      <p>Muslim Companion Extension v1.0.0</p>
+    </footer>
+    
+  </div>
+  
+  <script src="newtab.js"></script>
+</body>
+</html>
