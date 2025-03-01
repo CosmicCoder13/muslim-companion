@@ -17,7 +17,8 @@ A comprehensive Chrome extension for Muslims featuring prayer times, Qibla direc
 
 The easiest way to install Muslim Companion is from the Chrome Web Store:
 
-((https://chromewebstore.google.com/detail/muslim-companion/pmlpkomimnkpjkkamingmlgifjiaefnh))
+[Muslim Companion extension](https://chromewebstore.google.com/detail/muslim-companion/pmlpkomimnkpjkkamingmlgifjiaefnh)
+
 
 ### From Source Code
 
