@@ -91,3 +91,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - Thanks to all the APIs that make this extension possible
 - Inspired by the Muslim community's need for convenient Islamic tools
+- By [Namaz Time Jeddah](https://www.namaztimejeddah.com)
